@@ -11,6 +11,7 @@ const especiales = ['A','J','Q','K'];
 const btnPedir = document.querySelector('#btnPedir');
 const btnNuevo = document.querySelector('#btnNuevo');
 const btnDetener = document.querySelector('#btnDetener');
+const divCartasJugador = document.querySelector('#jugador-cartas');
 let puntosJugador = 0;
 let puntosComputadora = 0;
 let smalls = document.querySelectorAll('small');
@@ -56,10 +57,29 @@ crearDeck();
 
 //eventos
 btnPedir.addEventListener('click', () => {
+    
     const carta = pedirCarta();
     puntosJugador = puntosJugador + valorCarta(carta);
     
+    
     smalls[0].innerText=puntosJugador;
     console.log(puntosJugador);
+
+    //<img class="carta" src="assets/cartas/2C.png"/>
+    
+    const imgCarta = document.createElement('img');
+    imgCarta.src = `assets/cartas/${carta}.png`;
+    imgCarta.classList.add('carta');
+
+    divCartasJugador.append(imgCarta);
+    if(puntosJugador>21){
+        console.warn('Lo siento perdiste');
+        btnPedir.disabled=true;
+        return;
+    }else if (puntosJugador===21){
+        console.warn('Ganaste');
+        btnPedir.disabled=true;
+        return;
+    }
 });
 

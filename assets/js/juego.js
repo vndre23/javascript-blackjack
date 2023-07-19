@@ -18,6 +18,7 @@ let puntosComputadora = 0;
 let smalls = document.querySelectorAll('small');
 
 const crearDeck = () => {
+    deck=[];
     for (let index = 2; index <= 10; index++) {
         for (let tipo of tipoDeck) {
             deck.push(index + tipo);    
@@ -129,6 +130,19 @@ btnDetener.addEventListener('click',()=>{
     turnoComputadora(puntosJugador);
 
 });
+
+btnNuevo.addEventListener('click',()=>{
+    deck=crearDeck();
+    puntosComputadora=0;
+    puntosJugador=0;
+    btnPedir.disabled=false;
+    btnDetener.disabled=false;
+    smalls[0].innerText=0;
+    smalls[1].innerText=0;
+    divCartasJugador.innerHTML='';
+    divCartasComputadora.innerHTML='';
+
+})
 
 
 

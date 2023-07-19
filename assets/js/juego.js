@@ -24,4 +24,18 @@ const crearDeck = () => {
     console.log(deck);
     return deck;
 }
-//crearDeck();
+
+
+const pedirCarta = () => {
+    if (deck.length===0){
+        throw 'No hay cartas en el deck'
+    }
+    let carta = deck.pop();
+    console.log(carta);
+    console.log(deck);
+    return carta;
+    
+    
+}
+crearDeck();
+pedirCarta();

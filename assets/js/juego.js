@@ -116,6 +116,8 @@ const turnoComputadora = (puntosMinimos) => {
             alert('Perdiste Computadora gana');
         }else if(puntosComputadora>21){
             alert('Ganaste');
+        }else{
+            alert('computadora gana');
         }
     },10);
     

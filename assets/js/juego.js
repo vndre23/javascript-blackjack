@@ -37,5 +37,16 @@ const pedirCarta = () => {
     
     
 }
+
+const valorCarta = (carta) => {
+
+    let valor = carta.substring(0,carta.length-1);
+    return isNaN(valor) ?  
+            (valor==='A' ? valor=11 :  valor=10) 
+        :   parseInt(valor)
+    
+    
+}
 crearDeck();
-pedirCarta();
+
+valorCarta(pedirCarta());
